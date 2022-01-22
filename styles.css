@@ -13,3 +13,8 @@ button {
     color: white;
     min-width: 80px;
 }
+
+#result {
+    margin-top: 8px;
+    line-height: 30px;
+}

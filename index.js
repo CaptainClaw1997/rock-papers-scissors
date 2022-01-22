@@ -74,33 +74,10 @@ function playRound(playerSelection, computerSelection) {
 
     return message;
 }
-  
-// const playerSelection = "rock";
-// const computerSelection = computerPlay();
-// console.log(playRound(playerSelection, computerSelection));
 
 function game() {
-    const NUMBER_OF_ROUNDS = 5;
-    const PROMPT_MESSAGE = 'Please choose Rock, Paper or Scissors'
-    let playerSelection = "";
-
-    let i = 0;
-    // let continueGame = true;
-
-    // while (continueGame) {
-    //     console.log(`Round ${i}`);
-    //     while (isValidPlayerSelection(playerSelection) === false) {
-    //         playerSelection = cleanPlayerSelection(prompt(PROMPT_MESSAGE));
-    //         console.log(playerSelection);
-    //     }
-    //     console.log(playRound(playerSelection, computerPlay()));
-
-    //     // reset choice
-    //     playerSelection = "";
-
-    //     // increment round number
-    //     i++;
-    // }
+    const buttons = document.querySelectorAll("button");
+    attachEventListeners(buttons);
 }
 
 function isValidPlayerSelection(playerSelection) {
@@ -110,6 +87,24 @@ function isValidPlayerSelection(playerSelection) {
 function cleanPlayerSelection(playerSelection) {
     // Player Selection needs to have first letter in upper case and the rest in lower case
     return playerSelection.substr(0,1).toUpperCase() + playerSelection.substr(1, playerSelection.length - 1).toLowerCase();
+}
+
+function attachEventListeners(buttons) {
+    buttons.forEach((button) => button.addEventListener('click', (e) => {
+        const playerSelection = e.target.getAttribute("data-choice");
+        const computerSelection = computerPlay();
+        const result = playRound(playerSelection, computerSelection);
+
+        display(result, playerSelection, computerSelection);
+    }));
+}
+
+function display(result, playerSelection, computerSelection) {
+    const resultDiv = document.querySelector("#result");
+    //const result;
+    resultDiv.innerText = `Player chose: ${playerSelection}
+    Computer chose: ${computerSelection}
+    Result: ${result}`;
 }
 
 game();
