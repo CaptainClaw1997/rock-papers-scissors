@@ -84,17 +84,23 @@ function game() {
     const PROMPT_MESSAGE = 'Please choose Rock, Paper or Scissors'
     let playerSelection = "";
 
-    for (let i = 1; i <= NUMBER_OF_ROUNDS; i++){
-        console.log(`Round ${i}`);
-        while (isValidPlayerSelection(playerSelection) === false) {
-            playerSelection = cleanPlayerSelection(prompt(PROMPT_MESSAGE));
-            console.log(playerSelection);
-        }
-        console.log(playRound(playerSelection, computerPlay()));
+    let i = 0;
+    // let continueGame = true;
 
-        // reset choice
-        playerSelection = "";
-    }
+    // while (continueGame) {
+    //     console.log(`Round ${i}`);
+    //     while (isValidPlayerSelection(playerSelection) === false) {
+    //         playerSelection = cleanPlayerSelection(prompt(PROMPT_MESSAGE));
+    //         console.log(playerSelection);
+    //     }
+    //     console.log(playRound(playerSelection, computerPlay()));
+
+    //     // reset choice
+    //     playerSelection = "";
+
+    //     // increment round number
+    //     i++;
+    // }
 }
 
 function isValidPlayerSelection(playerSelection) {

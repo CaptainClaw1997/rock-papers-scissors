@@ -1,0 +1,15 @@
+.button-bar {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: start;
+}
+
+button {
+    background-color: blue;
+    border-radius: 5px;
+    border-color: white;
+    border-width: 2px;
+    color: white;
+    min-width: 80px;
+}
